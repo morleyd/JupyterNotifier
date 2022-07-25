@@ -2,7 +2,7 @@ from IPython.core.magic import register_cell_magic
 from IPython.core.display  import display
 from IPython.display import Audio
 
-from utils.sounds import SoundMaker
+from .sounds import SoundMaker
 
 s = SoundMaker()
 beethoven_5 = s.make_melody([
@@ -28,7 +28,7 @@ imperial_march = s.make_melody([
 def sound_notification(line, cell):
     try:
         exec(cell)
-        display(Audio(s.make_woooop(), rate=s.default_rate, autoplay=True, normalize=True))
+        display(Audio(s.make_woooop(), rate=s.default_rate, autoplay=True))
     except Exception as e:
-        display(Audio(imperial_march, rate=s.default_rate, autoplay=True, normalize=True))
+        display(Audio(imperial_march, rate=s.default_rate, autoplay=True))
         raise e

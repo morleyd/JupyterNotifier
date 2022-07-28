@@ -1,6 +1,16 @@
 # JupyterNotifier
 Cell magic for sending notifications for long code
 
+## Table of Contents
+
+- [Background](https://github.com/morleyd/JupyterNotifier/#Background)
+- [Useage](https://github.com/morleyd/JupyterNotifier/#Useage)
+  * [Basic Sound Notification](https://github.com/morleyd/JupyterNotifier/#Basic-Sound-Notification)
+  * [Email/Text Notifications](https://github.com/morleyd/JupyterNotifier/#EmailText-Notifications)
+    + [A note about text messages](https://github.com/morleyd/JupyterNotifier/#a-note-about-text-messages)
+- [Repo Contents](https://github.com/morleyd/JupyterNotifier/#Repo-Contents)
+- [TODO](https://github.com/morleyd/JupyterNotifier/#TODO)
+  
 ## Background
 I made a tool that notifies the user about code evaluation whether or not it met an exception. In my work, I often run long executing code – like training neural networks or mass web scraping – and it’s inefficient to just wait for it to finish. However, it also doesn’t do to have to check back to see if it errored out, when using a Google Colab notebook, if the code raises an exception, it stops executing before any notification code. 
 
@@ -45,9 +55,10 @@ For my lifestyle, receiving a text notification is far more useful than an email
   - Verizon: phonenumber@vtext.com or phonenumber@vzwpix.com
   - Virgin Mobile: phonenumber@vmobl.com
   - Google Fi: phonenumber@msg.fi.google.com
+
 This [resource](https://20somethingfinance.com/how-to-send-text-messages-sms-via-email-for-free/) or a web search will have a more comprehensive list. Also note that the addresses above are for basic SMS messages. Do a quick search to double check it if you need to send a MMS.
 
-## Contents
+## Repo Contents
 This package contains two notification modules, `basic.py` & `email.py`. Most of the code is duplicated between the two, but I didn't want to force users to have to install/comment out SendGrid if they didn't plan on using it. This repo also includes a fun helper module, `sounds.py`. This contains the SoundMaker class that simplifies making wacky music. I could have just used a sound byte from the web, but this seemed more fun. 
 
 It should be noted that `sounds.py` can be used as a stand alone module to make any sound byte. Each function within the `SoundMaker` class can be used separately or in conjunction with each other. The following example shows the creation of the Imperial March motif and should play automatically in a jupyter notebook.
